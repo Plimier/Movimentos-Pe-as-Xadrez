@@ -3,7 +3,7 @@
 int main(){
 
     
-    int torre = 1, bispo = 1, rainha, contagem;
+    int torre = 1, bispo = 1, rainha, cavalo = 1, contagem;
     
 
     // verifica se o número é menor ou igual a cinco até parar de rodar o código. haverá um incremento para o valor da variável torre.
@@ -42,6 +42,32 @@ int main(){
 
         printf("%d Esquerda\n", contagem);
         contagem++;
+    }
+
+
+    // Cavalo. loops aninhados
+
+    /*
+    Abaixo o looping externo só precisa fazer uma repetição, enquanto o interno precisa de duas.
+    */
+    
+    contagem = 1;
+
+    printf("\n\nO cavalo se move\n");
+    
+    while (contagem <= 1){
+
+        for (cavalo = 1; cavalo <= 2; cavalo++){
+
+            printf("\n%d Baixo", contagem);
+            contagem++;
+        }
+        
+
+        printf("\n%d esquerda\n", contagem);
+
+
+
     }
 
     return 0;
