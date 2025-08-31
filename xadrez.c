@@ -1,74 +1,117 @@
 #include <stdio.h>
 
+/*
+Bispo, torre e rainha ultilizam a recursividade para seus movimento. 
+
+Nas funções recursivas há uma condição que se Verdadeira imprime o movimento e chama a sí mesma criando um looping.
+
+*/
+
+void tower(int t){
+
+    if (t <= 5) {
+        printf("Direita\n");
+
+        tower(t + 1);
+    }
+
+}
+
+void bishop(int b){
+
+    if (b <= 5) {
+        printf("Direita/Cima\n");
+
+        bishop(b + 1);
+    }
+
+
+}
+
+void queen(int q){
+
+    if (q <= 8) {
+        printf("Esquerda\n");
+
+        queen(q + 1);
+    }
+
+}
+
+
 int main(){
 
     
-    int torre = 1, bispo = 1, rainha, cavalo = 1, contagem;
+    int torre = 1, bispo = 1, rainha = 1, cavalo = 1, contagem;
     
 
-    // verifica se o número é menor ou igual a cinco até parar de rodar o código. haverá um incremento para o valor da variável torre.
+    // chama a função recursiva da torre.
 
     printf("\nTorre se move para: \n");
 
-    contagem = 1;
+    tower(torre);
     
-    do {
+    // Movimento do Bispo. função recursiva.
 
-        printf("%d Direita\n", contagem);
-        torre++;
-        contagem++;
+    printf("\n\nO bispo se move com a Recursividade: \n");
 
-    } while (torre <= 5);
+    bishop(bispo);
 
+    // Movimento Bispo. Loops aninhados.
 
-    contagem = 1;
-    // Movimento do Bispo
+    printf("\n\nBispo aninhado com loops. Quem é loops? \n");
+    
 
-    printf("\n\nO bispo se move: \n");
+    while (bispo <= 5) {
 
-    while (bispo <= 5){
+        while (bispo){
 
-        printf("%d Direita, Cima\n", contagem);
+            printf("Direita/");
+
+            break; // com break o código não fica em looping infinito.
+            
+        }
+        printf("Cima\n");
         bispo++;
-        contagem++;
+        
+
+        
     }
 
-    contagem = 1;
-    // Rainha. função for repete 8 vezes enquanto variável rainha não for maior que 8
+
+    // Rainha. Recurcividade em looping por 8 vezes.
 
     printf("\n\nA rainha se move para: \n");
 
-    for (rainha = 1; rainha <= 8; rainha++){
-
-        printf("%d Esquerda\n", contagem);
-        contagem++;
-    }
+    queen(rainha);
 
 
-    // Cavalo. loops aninhados
+    // Cavalo. loops aninhados e avançados. tenho que mostar que sei estrutura-los.
 
     /*
     Abaixo o looping externo só precisa fazer uma repetição, enquanto o interno precisa de duas.
+
+    a maior parte do código a baixo não tem ultilidade prática e nem razão para estar lá.
     */
     
-    contagem = 1;
+
 
     printf("\n\nO cavalo se move\n");
-    
-    while (contagem <= 1){
 
-        for (cavalo = 1; cavalo <= 2; cavalo++){
+    while (cavalo <= 1){
 
-            printf("\n%d Baixo", contagem);
-            contagem++;
+        for (cavalo = 1, contagem = 1; contagem <= 2 && cavalo != 3; contagem++, cavalo++){
+
+            printf("%d Cima\n", contagem);
+
         }
-        
 
-        printf("\n%d esquerda\n", contagem);
-
+        printf("%d Direita\n", contagem);
 
 
     }
+    
+
 
     return 0;
 }
